@@ -17,4 +17,4 @@ On Vercel: import the repo, framework preset **Other**, no build command, output
 ## Contact
 - Email: Sunnyhooda815@gmail.com
 - Phone: 437-766-1109
-- GitHub: https://github.com/trevor0907wallace
+- GitHub: https://github.com/sunnyhooda-11
