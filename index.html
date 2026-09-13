@@ -517,8 +517,10 @@
 
   /* count up (stats + ring values) */
   function cnt(el){var t=parseInt(el.getAttribute("data-count"),10),dur=1400,s=null;
+    if(isNaN(t)){return;}
     if(reduce){el.textContent=t;return;}
-    (function tk(ts){if(!s)s=ts;var p=Math.min((ts-s)/dur,1);el.textContent=Math.round((1-Math.pow(1-p,3))*t);if(p<1)requestAnimationFrame(tk);})();}
+    function tk(ts){if(!s)s=ts;var p=Math.min((ts-s)/dur,1);el.textContent=Math.round((1-Math.pow(1-p,3))*t);if(p<1)requestAnimationFrame(tk);}
+    requestAnimationFrame(tk);}
   var cs=d.querySelectorAll("[data-count]");
   if("IntersectionObserver"in window){var co=new IntersectionObserver(function(en,o){en.forEach(function(x){if(x.isIntersecting){cnt(x.target);o.unobserve(x.target);}});},{threshold:.6});cs.forEach(function(c){co.observe(c);});}
   else{cs.forEach(function(c){c.textContent=c.getAttribute("data-count");});}
